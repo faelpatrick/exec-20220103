@@ -19,11 +19,8 @@ class UsersController {
             if (user) {
                 return res.status(422).json({ message: `User ${email} already exists.` });
             }
-
             const newUser = await User.create({ email, password });
-
             return res.status(201).json(newUser);
-
         } catch (error) {
             console.error(error);
             return res.status(500).json({ error: "Internal server error." });
