@@ -11,6 +11,13 @@ class UsersController {
         }
     }
     async show(req, res) {
+        try {
+            const users = await User.find();
+            return res.json(users);
+        } catch (error) {
+            console.error(error);
+            return res.status(500).json({ error: "internal server error." });
+        }
     }
     async create(req, res) {
         try {
