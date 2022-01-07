@@ -1,2 +1,10 @@
 import app from "./app";
-app.listen(1001, err => { err ? console.log(err) : console.log('Listen port 1001'); });
+import "dotenv/config";
+const PORT = process.env.PORT;
+app.listen(PORT, err => {
+    if (err) {
+        console.log(err);
+    } else {
+        console.log(`Listen port ${PORT}`);
+    }
+});
